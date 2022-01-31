@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: [:index ,:show]
   # GET /articles or /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.all.order("created_at DESC")
   end
 
   # GET /articles/1 or /articles/1.json
@@ -65,6 +65,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :content, :user_id, :category_id)
+      params.require(:article).permit(:category_id, :title, :content, :user_id)
     end
 end
