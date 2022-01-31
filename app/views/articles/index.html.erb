@@ -1,15 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
+
 <h1>Articles</h1>
 
 <div id="articles">
   <% @articles.each do |article| %>
-    <%= render article %>
-    <p>
-      <%= link_to "Show this article", article %>
-      <p>Published at <%= article.created_at.strftime('%b %d %Y') %></p>
-    </p>
+
+    <div class="card">
+  <div class="card-header">
+    <p>Published at <%= article.created_at.strftime('%b %d %Y')  %></p><p> by <%= article.user.email %></p>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%=article.title%></h5>
+    <p class="card-text"><%= article.content %></p>
+    <%= link_to "Show Article", article, class:"btn btn-primary" %>
+  </div>
+</div>
   <% end %>
 </div>
-
-<%= link_to "New article", new_article_path %>
