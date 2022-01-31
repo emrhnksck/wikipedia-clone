@@ -57,6 +57,16 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def upvote
+    @article = Article.find(params[:id])
+    @article.upvote_from current_user
+  end
+
+  def downvote
+    @article = Article.find(params[:id])
+    @artcile.downvote_from current_user
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article

@@ -33,6 +33,7 @@ gem 'simple_form'
 
 gem 'haml'
 
+gem 'acts_as_votable'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

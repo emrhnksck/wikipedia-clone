@@ -14,6 +14,15 @@
     <h5 class="card-title"><%=article.title%></h5>
     <p class="card-text"><%= article.content %></p>
     <%= link_to "Show Article", article, class:"btn btn-primary" %>
+    <%= button_to like_article_path(article), method: :put do %>
+      Like
+      <%= article.get_upvotes.size %>
+    <% end %>
+
+    <%= button_to unlike_article_path(article), method: :put do %>
+      Dislike
+      <%= article.get_downvotes.size %>
+    <% end %>
   </div>
 </div>
   <% end %>
